@@ -1,0 +1,21 @@
+EMainInPlace : AjaxInPlace {
+	saveAction = saveAfterLeavingInPlaceEditor;
+	cancelAction = valueCancelled;
+
+}
+
+Edit : ERXWOTemplate {
+	templateName = "edit";
+}
+
+Value : ERXStringWithLineBreaks {
+	value = object.eMail;//VALID
+}
+
+ValueField : WOText {
+	value = object.eMail;//VALID
+}
+
+View : ERXWOTemplate {
+	templateName = "view";
+}

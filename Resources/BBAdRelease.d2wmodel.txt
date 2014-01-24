@@ -1,0 +1,7 @@
+(
+    40 : pageConfiguration like '*BillboardAdRelease' => navigationState = "ListBillboardAdRelease" [com.webobjects.directtoweb.Assignment],
+    50 : pageConfiguration = 'QueryBillboardAdRelease' => queryDataSourceDelegate = "com.as.application.app.OnlyBillboardQueryDataSource" [ERDDelayedObjectCreationAssignment],
+    100 : pageConfiguration = 'QueryBillboardAdRelease' => entity = "AdRelease" [com.webobjects.directtoweb.EntityAssignment],
+    100 : pageConfiguration = 'QueryBillboardAdRelease' => displayPropertyKeys = ("client", "dueDate") [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'QueryBillboardAdRelease' => listConfigurationName = "ListBillboardAdRelease" [com.webobjects.directtoweb.Assignment]
+)

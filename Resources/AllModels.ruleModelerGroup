@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>modelPaths</key>
+	<array>
+		<string>/Users/asacksadmin/Documents/workspace/ASAdTrafficApp/Resources/AdRelease.d2wmodel</string>
+		<string>/Users/asacksadmin/Documents/workspace/ASAdTrafficApp/Resources/BBAdRelease.d2wmodel</string>
+		<string>/Users/asacksadmin/Documents/workspace/ASAdTrafficApp/Resources/DigitalAdRelease.d2wmodel</string>
+		<string>/Users/asacksadmin/Documents/workspace/ASAdTrafficApp/Resources/Person.d2wmodel</string>
+		<string>/Users/asacksadmin/Documents/workspace/ASAdTrafficApp/Resources/RowColor.d2wmodel</string>
+		<string>/Users/asacksadmin/Documents/workspace/ASAdTrafficApp/Resources/user.d2wmodel</string>
+	</array>
+</dict>
+</plist>

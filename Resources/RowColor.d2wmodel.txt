@@ -1,0 +1,7 @@
+(
+    100 : (entity.name = 'AdRelease' and object.rowColor.rowColorName = 'Red') => baseClassForObjectRow = "highlightRed ObjRow" [com.webobjects.directtoweb.Assignment],
+    100 : (entity.name = 'AdRelease' and object.rowColor.rowColorName = 'Blue') => baseClassForObjectRow = "highlightBlue ObjRow" [com.webobjects.directtoweb.Assignment],
+    100 : (entity.name = 'AdRelease' and object.rowColor.rowColorName = 'Green') => baseClassForObjectRow = "highlightGreen ObjRow" [com.webobjects.directtoweb.Assignment],
+    100 : (entity.name = 'AdRelease' and object.rowColor.rowColorName = 'Yellow') => baseClassForObjectRow = "highlightYellow ObjRow" [com.webobjects.directtoweb.Assignment],
+    100 : (entity.name = 'AdRelease' and object.rowColor.rowColorName = 'Light Blue') => baseClassForObjectRow = "highlightLightBlue ObjRow" [com.webobjects.directtoweb.Assignment]
+)

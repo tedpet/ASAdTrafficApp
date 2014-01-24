@@ -1,0 +1,17 @@
+(
+    40 : pageConfiguration = 'ListAdRelease' => navigationState = "ListAdRelease" [com.webobjects.directtoweb.Assignment],
+    40 : pageConfiguration like '*DigitalAdRelease' => navigationState = "ListDigitalAdRelease" [com.webobjects.directtoweb.Assignment],
+    100 : *true* => isEntityInspectable = "false" [com.webobjects.directtoweb.Assignment],
+    100 : *true* => CustomPrintCSS = {"filename" = "print.css"; "framework" = "app"; "media" = "Print"; } [com.webobjects.directtoweb.Assignment],
+    100 : *true* => CustomCSS = {"filename" = "customizations.css"; "framework" = "app"; "media" = "all"; } [com.webobjects.directtoweb.Assignment],
+    100 : (pageConfiguration = 'ListClient' and propertyKey = 'isActive') => componentName = "D2WDisplayBoolean" [com.webobjects.directtoweb.Assignment],
+    100 : (pageConfiguration like '*AdRelease' and propertyKey = 'client') => componentName = "ERD2WEditToOneRelationship" [com.webobjects.directtoweb.Assignment],
+    100 : (pageConfiguration like '*AdRelease' and propertyKey = 'rowColor') => componentName = "ERD2WEditToOneRelationship" [com.webobjects.directtoweb.Assignment],
+    100 : ((pageConfiguration = 'CreateClient' or pageConfiguration = 'EditClient') and propertyKey = 'isActive') => componentName = "D2WEditBoolean" [com.webobjects.directtoweb.Assignment],
+    100 : (pageConfiguration = 'CreateClient' or pageConfiguration = 'InspectClient' or pageConfiguration = 'EditClient') => displayPropertyKeys = ("clientAbbreviation", "clientName", "isActive") [com.webobjects.directtoweb.Assignment],
+    100 : ((pageConfiguration = 'ListAdRelease' or pageConfiguration = 'ListBillboardAdRelease' or pageConfiguration = 'ListDigitalAdRelease') and session.user.security.seesShortList = 1) => displayPropertyKeys = ("client.clientAbbreviation", "dueDate", "extStat", "jobNumber", "publication", "issueDate", "creative", "unit", "comments", "status") [com.webobjects.directtoweb.Assignment],
+    100 : ((pageConfiguration = 'ListAdRelease' or pageConfiguration = 'ListBillboardAdRelease' or pageConfiguration = 'ListDigitalAdRelease') and session.user.security.seesShortList = 0) => displayPropertyKeys = ("client.clientAbbreviation", "dueDate", "extStat", "jobNumber", "publication", "issueDate", "creative", "unit", "comments", "status", "pubContact", "phoneNumber", "eMail") [com.webobjects.directtoweb.Assignment],
+    101 : entity.name = 'Client' => isEntityEditable = {"conditionKey" = "session.user.security.canEditClient"; "trueValue" = "true"; } [er.directtoweb.assignments.delayed.ERDDelayedBooleanAssignment],
+    101 : entity.name = 'Person' => isEntityEditable = {"conditionKey" = "session.user.security.canEditPerson"; "trueValue" = "true"; } [er.directtoweb.assignments.delayed.ERDDelayedBooleanAssignment],
+    101 : entity.name = 'AdRelease' => isEntityEditable = {"conditionKey" = "session.user.security.canEditAdRelease"; "trueValue" = "true"; } [er.directtoweb.assignments.delayed.ERDDelayedBooleanAssignment]
+)

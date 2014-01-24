@@ -1,0 +1,100 @@
+(
+	{
+		name = Root;
+		children = (ListAdRelease, ListDigitalAdRelease, ListBillboardAdRelease, ListPerson, ListClient, Search);
+	},
+	{
+		name = Search;
+		action = "session.navController.homeAction";
+	},
+	{
+		name = ListDigitalAdRelease;
+		displayName = "Digital Ads";
+		action = "session.navController.listDigitalAdReleaseAction";
+		
+		children = ("searchDigital","Logout");
+	
+	},
+	{
+	    name = searchDigital;
+		displayName = "Search Digital Ads";
+		action = "session.navController.queryDigitalAction";
+		
+	},
+	{
+		name = ListAdRelease;
+		displayName = "Print Ads";
+		action = "session.navController.listAdReleaseAction";
+		
+		children = ("searchAdRelease", "createAdRelease","Logout");
+	
+	},
+	{
+	    name = searchAdRelease;
+		displayName = "Search Print Ads";
+		action = "session.navController.queryAdReleaseAction";
+		
+	},
+	{
+		name = ListBillboardAdRelease;
+		displayName = "Billboards";
+		action = "session.navController.listBillboardAdRelease";
+		
+		children = ("searchBillboard","Logout");
+	
+	},
+	{
+	    name = searchBillboard;
+		displayName = "Search Billboards";
+		action = "session.navController.queryBillboardAction";
+		
+	},
+	{
+		name = ListClient;
+		displayName = "Clients";
+		action = "session.navController.listClientAction";
+		conditions = ("session.user.security.canSeeClients");
+		children = ("CreateClient","Logout");
+	
+	},
+	{
+		name = createAdRelease;
+		displayName = "Create New Ad";
+		action = "session.navController.createAdReleaseAction";
+		conditions = ("session.user.security.canAddNewRelease");
+	},
+	{
+		name = ListPerson;
+		displayName = "Users";
+		action = "session.navController.listPersonAction";
+		
+		conditions = ("session.user.security.canSeePerson");
+		children = ("createPerson","Logout");
+	},
+	{
+		name = createPerson;
+		displayName = "Create New User";
+		action = "session.navController.createPersonAction";
+		conditions = ("session.user.security.canCreatePerson");
+		
+	},
+	{
+		name = CreateClient;
+		displayName = "Create New Client";
+		action = "session.navController.createClientAction";
+		conditions = ("session.user.security.canCreateClient");
+		
+	},
+	{
+		name = Logout;
+		directActionName = "logout";
+		/*
+		You may specify the direct action class using the
+		directActionClass binding.
+		*/
+		directActionClass = "ERXDirectAction";
+	}
+	
+	
+
+)

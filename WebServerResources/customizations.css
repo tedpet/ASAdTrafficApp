@@ -1,0 +1,152 @@
+.NameAttrVal PropertyName  {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.highlightYellow {
+	background-color: yellow;
+	color: black;
+}
+
+.highlightRed {
+	background-color: #FF3300;
+	color: black;
+}
+
+.highlightBlue {
+	background-color: #0066ff;
+	color: black;
+}
+
+.highlightLightBlue {
+	background-color: #96C4F0;
+	color: black;
+}
+
+.highlightGreen {
+	background-color: #00ff00;
+	color: black;
+}
+
+.PubContactAttrColumn {
+	width: 13%;
+}
+
+.PubContactAttrVal textarea {
+	width: 300px;
+    height: 35px;
+}
+
+.EMailAttrColumn textarea{
+	width: 120px;
+	height: 75px;
+}
+
+.EMailAttrVal textarea{
+	width: 300px;
+	height: 55px;
+}
+
+.CommentsAttrVal textarea {
+	width: 300px;
+    height: 55px;
+}
+
+.PhoneNumberAttrVal textarea {
+	width: 300px;
+    height: 55px;
+}
+
+.PhoneNumberAttrColumn {
+	width: 13%;
+}
+
+.LftActionCell {
+	width: 4%;
+}
+
+.ClientClientAbbreviationAttrColumn {
+	width: 5%;
+}
+
+.DueDateAttrColumn {
+	width: 5%;
+}
+
+.ExtStatAttrColumn {
+	width: 5%;
+}
+
+.CommentsAttrColumn {
+	width: 12%
+}
+
+.StatusAttrColumn {
+	width: 4%;
+}
+
+.JobNumberAttrColumn {
+	width: 4%;
+}
+
+.PublicationAttrColumn {
+	width: 12%;
+}
+
+.IssueDateAttrColumn {
+	width: 7%;
+}
+
+.CreativeAttrColumn {
+	width: 12%
+}
+
+.UnitAttrColumn {
+	width: 6%
+}
+
+span.PeoplePermissionsAttrVal input {
+    width: 55px;
+}
+
+span.ReleasePermissionsAttrVal input {
+    width: 50px;
+}
+
+span.ClientPermissionsAttrVal input {
+    width: 100px;
+}
+
+span.PubContactAndPhoneAndEMailAttrVal textarea {
+	width: 200px;
+    height: 85px;
+}
+
+.EditPersonBtmActions {
+	width: 500px;
+}
+
+.EditAdReleaseBtmActions {
+	width: 500px;
+}
+
+.CreateAdReleaseBtmActions {
+	width: 500px;
+}
+
+.QueryAdReleaseBtmActions {
+	width: 500px;
+}
+
+.CreatePersonBtmActions {
+	width: 500px;
+}
+
+.EditClientBtmActions {
+	width: 500px;
+}
+
+.CreateClientBtmActions {
+	width: 500px;
+}
+

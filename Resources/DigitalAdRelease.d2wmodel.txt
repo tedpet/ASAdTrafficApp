@@ -1,0 +1,5 @@
+(
+    50 : pageConfiguration = 'QueryDigitalAdRelease' => queryDataSourceDelegate = "com.as.application.app.OnlyDigitalQueryDataSource" [ERDDelayedObjectCreationAssignment],
+    100 : pageConfiguration = 'QueryDigitalAdRelease' => entity = "AdRelease" [com.webobjects.directtoweb.EntityAssignment],
+    100 : pageConfiguration = 'QueryDigitalAdRelease' => listConfigurationName = "ListDigitalAdRelease" [com.webobjects.directtoweb.Assignment]
+)

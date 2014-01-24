@@ -1,0 +1,24 @@
+#MenuHeader {
+	display: none;
+}
+
+.ERXNavigationMenu {
+	display: none;
+}
+
+.DebugFlags {
+	display: none;
+}
+
+
+.DueDateAttrColumn {
+	width: 8%;
+}
+
+.ERMDBatchSize_Wrapper {
+	display: none;
+}
+
+#MainContent {
+ 	font-size: 8pt;
+}

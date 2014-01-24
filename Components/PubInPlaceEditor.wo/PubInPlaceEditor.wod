@@ -1,0 +1,9 @@
+PublicationEditInPlace : AjaxInPlaceEditor {
+	value = object.publication;//VALID
+	submitOnBlur = true;
+	cancelLink = false;
+	cols = 12;
+	action = saveAfterLeavingInPlaceEditor;
+	okButton = true;
+	editClass="editInPlaceClass";	
+}

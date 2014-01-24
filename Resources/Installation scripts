@@ -1,0 +1,19 @@
+
+ssh root@10.1.5.100
+
+cd /opt/Local/Library/WebObjects/JavaApplications/
+rm -Rf ASAdTrafficApp.woa/
+rm -Rf ASAdTrafficApp-Application.tar.gz
+wget http://10.1.2.10/ASAdTrafficApp-Application.tar.gz
+tar zxf ASAdTrafficApp-Application.tar.gz
+chown -R appserver:appserveradm ASAdTrafficApp.woa/
+
+
+cd /var/www/html/WebObjects/
+rm -Rf ASAdTrafficApp.woa/
+rm -Rf ASAdTrafficApp-WebServerResources.tar.gz
+wget http://10.1.2.10/ASAdTrafficApp-WebServerResources.tar.gz
+tar zxf ASAdTrafficApp-WebServerResources.tar.gz
+
+
+

@@ -1,0 +1,21 @@
+PublicationContactInPlace : AjaxInPlace {
+	saveAction = saveAfterLeavingInPlaceEditor;
+	cancelAction = valueCancelled;
+
+}
+
+Edit : ERXWOTemplate {
+	templateName = "edit";
+}
+
+Value : ERXStringWithLineBreaks {
+	value = object.pubContact;//VALID
+}
+
+ValueField : WOText {
+	value = object.pubContact;//VALID
+}
+
+View : ERXWOTemplate {
+	templateName = "view";
+}
