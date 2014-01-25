@@ -1,5 +1,5 @@
 (
-    100 : (pageConfiguration = 'EditPerson' and propertyKey = 'isActive') => componentName = "D2WEditBoolean" [com.webobjects.directtoweb.Assignment],
+    100 : ((pageConfiguration = 'CreatePerson' or pageConfiguration = 'EditPerson') and propertyKey = 'isActive') => componentName = "D2WEditBoolean" [com.webobjects.directtoweb.Assignment],
     100 : ((pageConfiguration = 'EditPerson' or pageConfiguration = 'CreatePerson') and propertyKey = 'name') => componentName = "ERD2WMultiItemCustomComponent" [com.webobjects.directtoweb.Assignment],
     100 : ((pageConfiguration = 'EditPerson' or pageConfiguration = 'CreatePerson') and propertyKey = 'name') => displayPropertyKeys = ("firstName", "lastName") [com.webobjects.directtoweb.Assignment],
     100 : ((pageConfiguration = 'EditPerson' or pageConfiguration = 'CreatePerson') and propertyKey = 'loginInfo') => displayPropertyKeys = ("login", "password") [com.webobjects.directtoweb.Assignment],
@@ -8,6 +8,7 @@
     100 : ((pageConfiguration = 'EditPerson' or pageConfiguration = 'CreatePerson') and propertyKey = 'clientPermissions') => componentName = "ERD2WMultiItemCustomComponent" [com.webobjects.directtoweb.Assignment],
     100 : ((pageConfiguration = 'EditPerson' or pageConfiguration = 'CreatePerson') and propertyKey = 'peoplePermissions') => componentName = "ERD2WMultiItemCustomComponent" [com.webobjects.directtoweb.Assignment],
     100 : ((pageConfiguration = 'EditPerson' or pageConfiguration = 'CreatePerson') and propertyKey = 'releasePermissions') => componentName = "ERD2WMultiItemCustomComponent" [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'CreatePerson' => displayPropertyKeys = ("name", "loginInfo", "email", "peoplePermissions", "releasePermissions", "clientPermissions", "security.seesShortList") [com.webobjects.directtoweb.Assignment],
     100 : pageConfiguration = 'EditPerson' => displayPropertyKeys = ("name", "loginInfo", "email", "peoplePermissions", "releasePermissions", "clientPermissions", "security.seesShortList", "isActive") [com.webobjects.directtoweb.Assignment],
     100 : ((pageConfiguration = 'EditPerson' or pageConfiguration = 'CreatePerson') and propertyKey = 'peoplePermissions') => displayPropertyKeys = ("security.canSeePerson", "security.canEditPerson", "security.canCreatePerson") [com.webobjects.directtoweb.Assignment],
     100 : ((pageConfiguration = 'EditPerson' or pageConfiguration = 'CreatePerson') and propertyKey = 'clientPermissions') => displayPropertyKeys = ("security.canSeeClients", "security.canEditClient", "security.canCreateClient") [com.webobjects.directtoweb.Assignment],

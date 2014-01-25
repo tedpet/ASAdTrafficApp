@@ -1,5 +1,7 @@
 (
+    40 : pageConfiguration like '*DigitalAdRelease' => navigationState = "ListDigitalAdRelease" [com.webobjects.directtoweb.Assignment],
     50 : pageConfiguration = 'QueryDigitalAdRelease' => queryDataSourceDelegate = "com.as.application.app.OnlyDigitalQueryDataSource" [ERDDelayedObjectCreationAssignment],
     100 : pageConfiguration = 'QueryDigitalAdRelease' => entity = "AdRelease" [com.webobjects.directtoweb.EntityAssignment],
+    100 : pageConfiguration = 'ListDigitalAdRelease' => editConfigurationName = "EditDigitalAdRelease" [com.webobjects.directtoweb.Assignment],
     100 : pageConfiguration = 'QueryDigitalAdRelease' => listConfigurationName = "ListDigitalAdRelease" [com.webobjects.directtoweb.Assignment]
 )

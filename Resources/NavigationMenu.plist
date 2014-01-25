@@ -1,11 +1,7 @@
 (
 	{
 		name = Root;
-		children = (ListAdRelease, ListDigitalAdRelease, ListBillboardAdRelease, ListPerson, ListClient, Search);
-	},
-	{
-		name = Search;
-		action = "session.navController.homeAction";
+		children = (ListAdRelease, ListDigitalAdRelease, ListBillboardAdRelease, ListPerson, ListClient);
 	},
 	{
 		name = ListDigitalAdRelease;

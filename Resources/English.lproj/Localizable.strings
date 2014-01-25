@@ -1,4 +1,12 @@
 {
+
+  "ERD2W.advancedFindButtonLabel" = "Advanced...";
+
   "PropertyKey.comments" = "Notes";
+  
+  "PropertyKey.isClosed" = "Closed";
+  "PropertyKey.pubContactAndPhoneAndEMail" = "";
+  
+  "PropertyKey.security.canCreatePerson = "Can Create New User";
   
 }

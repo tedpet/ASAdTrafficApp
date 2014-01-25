@@ -150,3 +150,10 @@ span.PubContactAndPhoneAndEMailAttrVal textarea {
 	width: 500px;
 }
 
+.BillboardDigitalClosedAttrVal input {
+	width: 50px;
+}
+
+.TypeOfAdAttrVal input {
+	width: 50px;
+}
