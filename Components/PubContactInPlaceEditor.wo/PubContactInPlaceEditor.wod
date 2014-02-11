@@ -1,5 +1,5 @@
 PubContactInPlaceEditor : AjaxInPlaceEditor {
-	value = multilineValue;
+	value = multilineValue;//VALID
 	submitOnBlur = true;
 	cancelLink = false;
 	cols = 40;

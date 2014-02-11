@@ -50,7 +50,7 @@
 		displayName = "Clients";
 		action = "session.navController.listClientAction";
 		conditions = ("session.user.security.canSeeClients");
-		children = ("CreateClient","Logout");
+		children = ("SearchClient", "CreateClient","Logout");
 	
 	},
 	{
@@ -65,7 +65,7 @@
 		action = "session.navController.listPersonAction";
 		
 		conditions = ("session.user.security.canSeePerson");
-		children = ("createPerson","Logout");
+		children = ("searchPerson", "createPerson","Logout");
 	},
 	{
 		name = createPerson;
@@ -75,10 +75,22 @@
 		
 	},
 	{
+		name = searchPerson;
+		displayName = "Search for User";
+		action = "session.navController.queryPersonAction";
+		
+	},
+	{
 		name = CreateClient;
 		displayName = "Create New Client";
 		action = "session.navController.createClientAction";
 		conditions = ("session.user.security.canCreateClient");
+		
+	},
+	{
+		name = SearchClient;
+		displayName = "Search for Client";
+		action = "session.navController.queryClientAction";
 		
 	},
 	{

@@ -1,4 +1,5 @@
 (
+    50 : pageConfiguration = 'QueryAdRelease' => queryDataSourceDelegate = "com.as.application.app.OnlyPrintAdsQueryDataSource" [ERDDelayedObjectCreationAssignment],
     100 : (pageConfiguration like 'List*Release' and propertyKey = 'extStat') => displayNameForProperty = "Ext." [com.webobjects.directtoweb.Assignment],
     100 : (pageConfiguration = 'QueryAdRelease' and propertyKey = 'client') => componentName = "ERD2WQueryToOneRelationship" [com.webobjects.directtoweb.Assignment]
 )

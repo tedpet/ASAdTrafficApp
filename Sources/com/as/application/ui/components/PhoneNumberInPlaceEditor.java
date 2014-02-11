@@ -2,16 +2,14 @@ package com.as.application.ui.components;
 
 import com.webobjects.appserver.WOActionResults;
 import com.webobjects.appserver.WOContext;
-import com.webobjects.directtoweb.D2WContext;
 import com.webobjects.eocontrol.EOEnterpriseObject;
 import com.webobjects.foundation.NSLog;
 
-import er.ajax.AjaxUpdateContainer;
 import er.ajax.AjaxUtils;
-import er.extensions.components.ERXComponent;
+import er.extensions.components.ERXStatelessComponent;
 
-public class NewPublicationContactComponent extends ERXComponent {
-    public NewPublicationContactComponent(WOContext context) {
+public class PhoneNumberInPlaceEditor extends ERXStatelessComponent {
+    public PhoneNumberInPlaceEditor(WOContext context) {
         super(context);
     }
     
@@ -36,23 +34,14 @@ public class NewPublicationContactComponent extends ERXComponent {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			AjaxUtils.javascriptResponse("alert('There was an error trying to save the " +
-					"edits to the Publication (" + e.getMessage() + ")!!');", context());
+					"edits to the Pub Phone Numbers (" + e.getMessage() + ")!!');", context());
 
 			e.printStackTrace();
-		}
-		
-		
-		//d2wContext.idForRepetitionContainer
-		//AjaxUpdateContainer.updateContainerWithID(d2wContext().  .idForRepetitionContainer, context());
-		
+		}		
+
 		return null;
 	}
 	
-//    public D2WContext d2wContext() {
-//    	return (D2WContext)valueForBinding("localContext");
-//    }
-    
-    
 	@Override
     public boolean synchronizesVariablesWithBindings() {
         return false;
@@ -65,5 +54,17 @@ public class NewPublicationContactComponent extends ERXComponent {
 		object().editingContext().revert();
 		return null;
 	}
+	
+  public String multilineValue() {
+    
+    return (object().valueForKey("phoneNumber") == null) ? null : ((String) object().valueForKey("phoneNumber")).replaceAll("\n\n", "<p>").replaceAll("\n", "<br/>");
+  }
+  
+  public void setMultilineValue(String inString) {           
+    
+    inString = inString.replaceAll("<p>", "\n\n").replaceAll("\n", "\r\n");
+    
+    object().takeValueForKey(inString, "phoneNumber");
+  }
 
 }

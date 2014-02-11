@@ -1,4 +1,4 @@
-PubContactInPlaceEditor : AjaxInPlaceEditor {
+PhoneNumberInPlaceEditor : AjaxInPlaceEditor {
 	value = multilineValue;
 	submitOnBlur = true;
 	cancelLink = false;

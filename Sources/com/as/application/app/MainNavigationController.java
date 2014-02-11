@@ -25,6 +25,8 @@ public class MainNavigationController {
 
 	private Session _session;
 	public String ADRELEASE = "AdRelease";
+  public String PERSON = "Person";
+  public String CLIENT = "Client";
 
 	
 	public MainNavigationController(Session s) {
@@ -59,11 +61,6 @@ public class MainNavigationController {
 			ERDListPageInterface lpi = (ERDListPageInterface) pageForConfigurationNamed("ListAdRelease");
 			
 			lpi.setDataSource(ds);
-
-//			if(lpi instanceof D2WPage) {
-//				D2WPage page = (D2WPage)lpi;
-//				page.d2wContext().takeValueForKey("ListAdRelease", "navigationState");
-//			}
 
 			return (WOComponent) lpi;
 		}
@@ -133,6 +130,7 @@ public class MainNavigationController {
 	  ds.setFetchSpecification(fs);
 
 	  ERDListPageInterface lpi = (ERDListPageInterface) pageForConfigurationNamed("ListBillboardAdRelease");	      
+	  
 	  lpi.setDataSource(ds);
 
 	  return (WOComponent) lpi;
@@ -148,39 +146,47 @@ public class MainNavigationController {
 	  }
 	  
 	  
-	public WOComponent listPersonAction() {
+	  public WOComponent listPersonAction() {
 
-		NSLog.out.appendln("*** firing listPersonAction");
+	    EODatabaseDataSource ds = new EODatabaseDataSource(ERXEC.newEditingContext(), PERSON);
 
-		EOEditingContext ec = ERXEC.newEditingContext();
+	    ds.setFetchSpecification(new ERXFetchSpecification<Person>(Person.ENTITY_NAME, Person.IS_ACTIVE.eq(true), null));
 
-		ListPageInterface component = D2W.factory().listPageForEntityNamed(Person.ENTITY_NAME, session());
-		component.setDataSource(new EODatabaseDataSource(ec, Person.ENTITY_NAME));
+	    ERDListPageInterface lpi = (ERDListPageInterface) pageForConfigurationNamed("ListPerson");
 
-		if(component instanceof D2WPage) {
-			D2WPage page = (D2WPage)component;
-			page.d2wContext().takeValueForKey("ListPerson", "navigationState");
-		}
-		return (WOComponent)component;
-	}		
+	    lpi.setDataSource(ds);
+
+	    return (WOComponent)lpi;
+	  }
+	  
+	  public WOComponent queryPersonAction() {
+	    QueryPageInterface component = (QueryPageInterface) D2W.factory().queryPageForEntityNamed("Person", session());
+
+	    return (WOComponent) component;
+
+	  }
 
 	public WOComponent listClientAction() {
 
-		NSLog.out.appendln("*** firing listClientAction");
+    EODatabaseDataSource ds = new EODatabaseDataSource(ERXEC.newEditingContext(), CLIENT);
 
-		EOEditingContext ec = ERXEC.newEditingContext();
+    ds.setFetchSpecification(new ERXFetchSpecification<Client>(Client.ENTITY_NAME, Client.IS_ACTIVE.eq(true), null));
 
-		ListPageInterface component = D2W.factory().listPageForEntityNamed(Client.ENTITY_NAME, session());
-		component.setDataSource(new EODatabaseDataSource(ec, Client.ENTITY_NAME));
+    ERDListPageInterface lpi = (ERDListPageInterface) pageForConfigurationNamed("ListClient");
 
-		if(component instanceof D2WPage) {
-			D2WPage page = (D2WPage)component;
-			page.d2wContext().takeValueForKey("ListClient", "navigationState");
-		}
-		return (WOComponent)component;
+    lpi.setDataSource(ds);
+
+    return (WOComponent)lpi;
 
 	}
 
+  public WOComponent queryClientAction() {
+    QueryPageInterface component = (QueryPageInterface) D2W.factory().queryPageForEntityNamed("Client", session());
+
+    return (WOComponent) component;
+
+  }
+  
 	public EditPageInterface createPersonAction() {
 
 		NSLog.out.appendln("*** createNewUserAction");
