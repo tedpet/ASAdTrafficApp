@@ -4,6 +4,7 @@ import com.as.application.app.Session;
 import com.as.model.AdRelease;
 import com.as.model.Client;
 import com.as.model.Person;
+import com.as.model.StudioNumber;
 import com.webobjects.appserver.WOComponent;
 import com.webobjects.directtoweb.D2W;
 import com.webobjects.directtoweb.D2WPage;
@@ -27,7 +28,7 @@ public class MainNavigationController {
 	public String ADRELEASE = "AdRelease";
   public String PERSON = "Person";
   public String CLIENT = "Client";
-
+  public String STUDIONUMBER = "StudioNumber";
 	
 	public MainNavigationController(Session s) {
 		super();
@@ -189,8 +190,6 @@ public class MainNavigationController {
   
 	public EditPageInterface createPersonAction() {
 
-		NSLog.out.appendln("*** createNewUserAction");
-
 		EditPageInterface component = D2W.factory().editPageForNewObjectWithConfigurationNamed("CreatePerson", session());
 
 		component.setNextPage(session().context().page());
@@ -225,7 +224,49 @@ public class MainNavigationController {
 		return component;
 	}	
 	
-	
+//
+//// Studio Numbers
+//
+public WOComponent listStudioNumberAction() {
+  EOEditingContext ec = ERXEC.newEditingContext();
+  ec.lock();
+  try {
+    EODatabaseDataSource ds = new EODatabaseDataSource(ec, STUDIONUMBER);
+          
+    ERXFetchSpecification<StudioNumber> fs = new ERXFetchSpecification<StudioNumber>(StudioNumber.ENTITY_NAME, 
+        StudioNumber.IS_ACTIVE.eq(true), null);
+    
+    ds.setFetchSpecification(fs);
+    
+    ERDListPageInterface lpi = (ERDListPageInterface) pageForConfigurationNamed("ListStudioNumber");
+    
+    lpi.setDataSource(ds);
+
+    return (WOComponent) lpi;
+  }
+  finally {
+    ec.unlock();
+  }
+} 
+
+
+public EditPageInterface createStudioNumberAction() {
+
+  EditPageInterface component = D2W.factory().editPageForNewObjectWithConfigurationNamed("CreateStudioNumber", session());
+  component.setNextPage(session().context().page());
+
+  return component;
+} 
+
+//    searchStudioNumbers
+
+public WOComponent searchStudioNumber() {
+  QueryPageInterface component = (QueryPageInterface) D2W.factory().queryPageForEntityNamed("StudioNumber", session());
+
+  return (WOComponent) component;
+
+}
+
 	// GENERIC ACTIONS
 	
 	protected WOComponent pageForConfigurationNamed(String name) {

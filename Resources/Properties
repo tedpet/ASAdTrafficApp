@@ -28,7 +28,7 @@ er.javamail.smtpPassword=
 
 
 # additional Model names
-er.directtoweb.ERD2WModel.additionalModelNames=("RowColor.d2wmodel", "AdRelease.d2wmodel", "DigitalAdRelease.d2wmodel", "BBAdRelease.d2wmodel", "Person.d2wmodel")
+er.directtoweb.ERD2WModel.additionalModelNames=("RowColor.d2wmodel", "AdRelease.d2wmodel", "DigitalAdRelease.d2wmodel", "BBAdRelease.d2wmodel", "Person.d2wmodel", "StudioNumber.d2wmodel")
 
 
 

@@ -48,15 +48,25 @@ public class PubContactInPlaceEditor extends ERXStatelessComponent {
     }
     
     public String multilineValue() {
-            
-      return (object().valueForKey("pubContact") == null) ? null : ((String) object().valueForKey("pubContact")).replaceAll("\n\n", "<p>").replaceAll("\n", "<br/>");
+      String returnString = null;
+
+      if (object().valueForKey("comments") == null || object().valueForKey("comments") == "") {
+        returnString = "---";
+      } else {
+        returnString = ((String) object().valueForKey("comments")).replaceAll("\n\n", "<p>").replaceAll("\n", "<br/>");
+      }
+
+      return returnString;
     }
-    
+
     public void setMultilineValue(String inString) {           
-      
-      inString = inString.replaceAll("<p>", "\n\n").replaceAll("\n", "\r\n");
-      
-      object().takeValueForKey(inString, "pubContact");
+
+      if (inString != null) {
+        inString = inString.trim();
+
+        inString = inString.replaceAll("<p>", "\r\n").replaceAll("\n", "\r\n");
+      }
+      object().takeValueForKey(inString, "comments");
     }
 
 }

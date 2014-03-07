@@ -1,0 +1,12 @@
+(
+    40 : pageConfiguration like '*StudioNumber' => navigationState = "ListStudioNumber" [com.webobjects.directtoweb.Assignment],
+    40 : pageConfiguration = 'CreateStudioNumber' => displayPropertyKeys = ("client", "studioTitle", "description") [com.webobjects.directtoweb.Assignment],
+    40 : pageConfiguration = 'ListStudioNumber' => displayPropertyKeys = ("primaryKey", "client.clientName", "studioTitle", "description") [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration like '*StudioNumber' => isEntityEditable = "true" [com.webobjects.directtoweb.Assignment],
+    100 : (pageConfiguration = 'ListStudioNumber' and propertyKey = 'primaryKey') => displayNameForProperty = "Studio Number" [com.webobjects.directtoweb.Assignment],
+    100 : ((task = 'edit' and entity.name = 'StudioNumber') and propertyKey = 'isActive') => componentName = "D2WEditBoolean" [com.webobjects.directtoweb.Assignment],
+    100 : (pageConfiguration = 'QueryStudioNumber' and propertyKey = 'client') => componentName = "ERD2WQueryToOneRelationship" [com.webobjects.directtoweb.Assignment],
+    100 : ((task = 'list' and entity.name = 'StudioNumber') and propertyKey = 'isActive') => componentName = "D2WDisplayBoolean" [com.webobjects.directtoweb.Assignment],
+    100 : (pageConfiguration = 'QueryStudioNumber' and propertyKey = 'isActive') => componentName = "TPSD2WQueryBooleanComponent" [com.webobjects.directtoweb.Assignment],
+    100 : ((pageConfiguration = 'EditStudioNumber' or pageConfiguration = 'CreateStudioNumber') and propertyKey = 'client') => componentName = "ERD2WEditToOneRelationship" [com.webobjects.directtoweb.Assignment]
+)
