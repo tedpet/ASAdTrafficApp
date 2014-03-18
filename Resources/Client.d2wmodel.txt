@@ -1,0 +1,4 @@
+(
+    100 : pageConfiguration = 'EditClient' => displayPropertyKeys = ("clientAbbreviation", "clientName", "isActive") [com.webobjects.directtoweb.Assignment],
+    100 : (pageConfiguration = 'CreateClient' or pageConfiguration = 'InspectClient') => displayPropertyKeys = ("clientName", "clientAbbreviation") [com.webobjects.directtoweb.Assignment]
+)

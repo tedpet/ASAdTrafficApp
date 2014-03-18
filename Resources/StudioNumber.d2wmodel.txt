@@ -1,6 +1,7 @@
 (
     40 : pageConfiguration like '*StudioNumber' => navigationState = "ListStudioNumber" [com.webobjects.directtoweb.Assignment],
     40 : pageConfiguration = 'CreateStudioNumber' => displayPropertyKeys = ("client", "studioTitle", "description") [com.webobjects.directtoweb.Assignment],
+    40 : pageConfiguration = 'EditStudioNumber' => displayPropertyKeys = ("client", "description", "studioTitle", "isActive") [com.webobjects.directtoweb.Assignment],
     40 : pageConfiguration = 'ListStudioNumber' => displayPropertyKeys = ("primaryKey", "client.clientName", "studioTitle", "description") [com.webobjects.directtoweb.Assignment],
     100 : pageConfiguration like '*StudioNumber' => isEntityEditable = "true" [com.webobjects.directtoweb.Assignment],
     100 : (pageConfiguration = 'ListStudioNumber' and propertyKey = 'primaryKey') => displayNameForProperty = "Studio Number" [com.webobjects.directtoweb.Assignment],

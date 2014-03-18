@@ -58,10 +58,10 @@ public class PhoneNumberInPlaceEditor extends ERXStatelessComponent {
   public String multilineValue() {
     String returnString = null;
 
-    if (object().valueForKey("comments") == null || object().valueForKey("comments") == "") {
+    if (object().valueForKey("phoneNumber") == null || object().valueForKey("phoneNumber") == "") {
       returnString = "---";
     } else {
-      returnString = ((String) object().valueForKey("comments")).replaceAll("\n\n", "<p>").replaceAll("\n", "<br/>");
+      returnString = ((String) object().valueForKey("phoneNumber")).replaceAll("\n\n", "<p>").replaceAll("\n", "<br/>");
     }
 
     return returnString;
@@ -74,7 +74,7 @@ public class PhoneNumberInPlaceEditor extends ERXStatelessComponent {
 
       inString = inString.replaceAll("<p>", "\r\n").replaceAll("\n", "\r\n");
     }
-    object().takeValueForKey(inString, "comments");
+    object().takeValueForKey(inString, "phoneNumber");
   }
 
 }

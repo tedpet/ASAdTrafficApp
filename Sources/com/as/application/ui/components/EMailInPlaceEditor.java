@@ -22,7 +22,21 @@ public class EMailInPlaceEditor extends ERXComponent {
 	}
 
 	public String displayValue() {
-		return (String)object().valueForKey(key());
+	  String returnString = "";
+	  if ((String)object().valueForKey("eMail") != null) {
+	    returnString = (String)object().valueForKey("eMail");
+	  } else {
+	    returnString = "---";
+	  }
+		return returnString;
+	}
+	
+	public void setDisplayValue(String s) {
+	  if (s != null) {
+	    object().takeValueForKey("eMail", s);
+	  } else {
+	    object().takeValueForKey("eMail", "---");
+	  }
 	}
 
 	public WOActionResults saveAfterLeavingInPlaceEditor() {
