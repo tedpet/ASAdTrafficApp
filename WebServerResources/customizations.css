@@ -70,7 +70,7 @@
 }
 
 .DueDateAttrColumn {
-	width: 5%;
+	width: 20%;
 }
 
 .ExtStatAttrColumn {
@@ -111,6 +111,10 @@ span.PeoplePermissionsAttrVal input {
 
 span.ReleasePermissionsAttrVal input {
     width: 50px;
+}
+
+span.ProjectPermissionsAttrVal input {
+    width: 55px;
 }
 
 span.ClientPermissionsAttrVal input {
@@ -156,4 +160,20 @@ span.PubContactAndPhoneAndEMailAttrVal textarea {
 
 .TypeOfAdAttrVal input {
 	width: 50px;
+}
+
+.ProjectTitleAttrColumn {
+    width: 300px;
+}
+
+.ProjectDescriptionAttrColumn {
+    width: 400px;
+}
+
+.ClientClientNameAttrColumn {
+     width:20%;
+}
+
+.ProjectTitleAttrColumn {
+    width:20%;
 }

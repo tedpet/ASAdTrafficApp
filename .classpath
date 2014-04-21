@@ -28,5 +28,8 @@
 	<classpathentry kind="con" path="WOFramework/PostgresqlPlugIn"/>
 	<classpathentry kind="con" path="WOFramework/TPD2WFramework"/>
 	<classpathentry kind="lib" path="Libraries/postgresql-9.2-1003.jdbc4.jar"/>
+	<classpathentry kind="lib" path="Libraries/jasperreports-5.1.2.jar"/>
+	<classpathentry kind="con" path="WOFramework/TPJasperReports"/>
+	<classpathentry kind="con" path="WOFramework/WOOgnl"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

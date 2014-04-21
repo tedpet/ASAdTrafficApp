@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProjectReportByPerson" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ba3dbb6b-2f18-4f99-8b5e-7e024edf7835">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="reportDescription" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/Users/asacksadmin/Documents/workspace/ASAdTrafficApp/Resources/"]]></defaultValueExpression>
+	</parameter>
+	<field name="person.fullName" class="java.lang.String"/>
+	<field name="project.projectTitle" class="java.lang.String"/>
+	<field name="project.client.clientName" class="java.lang.String"/>
+	<field name="personStep" class="java.lang.String"/>
+	<field name="person.lastName" class="java.lang.String"/>
+	<field name="dueDate" class="java.util.Date"/>
+	<group name="pname">
+		<groupExpression><![CDATA[$F{person.fullName}]]></groupExpression>
+		<groupHeader>
+			<band height="29">
+				<textField>
+					<reportElement uuid="b8401b21-0509-48ca-a838-be6be480db19" x="2" y="9" width="359" height="16"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{person.fullName}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="507b3446-2b5a-4d30-b998-f6d04640223a" x="24" y="15" width="198" height="55"/>
+				<textElement>
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<text><![CDATA[AgencySacks Open Project by Person]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="4be1172f-8aa0-4ebf-9239-d03791183df9" x="347" y="31" width="328" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{reportDescription}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="15" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="13" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<textField>
+				<reportElement uuid="5babdc57-b49d-4ef6-a49b-089549958d93" x="140" y="0" width="142" height="12"/>
+				<textElement>
+					<font fontName="ASHelveticaNeueMedium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{project.client.clientName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f69874f7-db56-4a0a-8cf5-d6f5df7fbaa2" x="286" y="0" width="162" height="12"/>
+				<textElement>
+					<font fontName="ASHelveticaNeueMedium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{project.projectTitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="46bedd8c-2263-49dd-bf1e-f398066fc886" x="453" y="0" width="285" height="12"/>
+				<textElement>
+					<font fontName="ASHelveticaNeueMedium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{personStep}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy" isBlankWhenNull="true">
+				<reportElement uuid="10200a52-949d-4660-9224-bee76988a600" x="47" y="0" width="100" height="12"/>
+				<textElement>
+					<font fontName="ASHelveticaNeueMedium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dueDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="40" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="25" splitType="Stretch"/>
+	</summary>
+</jasperReport>

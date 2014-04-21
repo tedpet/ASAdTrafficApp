@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProjectReportByPerson_subreport1" pageWidth="752" pageHeight="572" orientation="Landscape" columnWidth="752" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e0fe14c9-b6a6-44c4-8dcb-e83afa0f2022">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="fullName" class="java.lang.String"/>
+	<detail>
+		<band height="63" splitType="Stretch">
+			<textField>
+				<reportElement uuid="da61f57c-fa60-4f27-b103-58f1d6fc69ae" x="28" y="20" width="302" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fullName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -4,12 +4,14 @@ import com.as.application.app.Session;
 import com.as.model.AdRelease;
 import com.as.model.Client;
 import com.as.model.Person;
+import com.as.model.Project;
 import com.as.model.StudioNumber;
 import com.webobjects.appserver.WOComponent;
 import com.webobjects.directtoweb.D2W;
 import com.webobjects.directtoweb.D2WPage;
 import com.webobjects.directtoweb.EditPageInterface;
 import com.webobjects.directtoweb.ErrorPageInterface;
+import com.webobjects.directtoweb.InspectPageInterface;
 import com.webobjects.directtoweb.ListPageInterface;
 import com.webobjects.directtoweb.QueryPageInterface;
 import com.webobjects.eoaccess.EODatabaseDataSource;
@@ -29,6 +31,7 @@ public class MainNavigationController {
   public String PERSON = "Person";
   public String CLIENT = "Client";
   public String STUDIONUMBER = "StudioNumber";
+  public String PROJECT = "Project";
 	
 	public MainNavigationController(Session s) {
 		super();
@@ -194,11 +197,6 @@ public class MainNavigationController {
 
 		component.setNextPage(session().context().page());
 
-//		if(component instanceof D2WPage) {
-//			D2WPage page = (D2WPage)component;
-//			page.d2wContext().takeValueForKey("Person.CreatePerson", "navigationState");
-//
-//		}
 		return component;	
 
 	}
@@ -216,11 +214,6 @@ public class MainNavigationController {
 		EditPageInterface component = D2W.factory().editPageForNewObjectWithConfigurationNamed("CreateClient", session());
 		component.setNextPage(session().context().page());
 
-//		if(component instanceof D2WPage) {
-//			D2WPage page = (D2WPage)component;
-//			page.d2wContext().takeValueForKey("Client.CreateClient", "navigationState");
-//
-//		}
 		return component;
 	}	
 	
@@ -267,6 +260,53 @@ public WOComponent searchStudioNumber() {
 
 }
 
+
+//   Projects
+
+public WOComponent listProjectAction() {
+  EOEditingContext ec = ERXEC.newEditingContext();
+  ec.lock();
+  try {
+    EODatabaseDataSource ds = new EODatabaseDataSource(ec, PROJECT);
+          
+    ERXFetchSpecification<Project> fs = new ERXFetchSpecification<Project>(Project.ENTITY_NAME, 
+        Project.IS_ACTIVE.eq(true), null);
+    
+    ds.setFetchSpecification(fs);
+    
+    ERDListPageInterface lpi = (ERDListPageInterface) pageForConfigurationNamed("ListProject");
+    
+    lpi.setDataSource(ds);
+
+    return (WOComponent) lpi;
+  }
+  finally {
+    ec.unlock();
+  }
+} 
+
+
+public EditPageInterface createProjectAction() {
+
+  EditPageInterface component = D2W.factory().editPageForNewObjectWithConfigurationNamed("CreateProject", session());
+  component.setNextPage(session().context().page());
+
+  return component;
+} 
+
+//    searchStudioNumbers
+
+public WOComponent searchProject() {
+  QueryPageInterface component = (QueryPageInterface) D2W.factory().queryPageForEntityNamed("Project", session());
+
+  return (WOComponent) component;
+
+}
+
+
+
+
+
 	// GENERIC ACTIONS
 	
 	protected WOComponent pageForConfigurationNamed(String name) {
@@ -294,6 +334,16 @@ public WOComponent searchStudioNumber() {
         return nextPage;
     }
     
+    
+    /*
+     * bring in the report section for reports
+     */
+    public WOComponent showProjectReportSelectionAction() {
+      
+      return D2W.factory().pageForConfigurationNamed("SelectProjectReports", session());
+      
+    }
+
     // ACCESSORS
     
     public Session session() {

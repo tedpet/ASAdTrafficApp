@@ -1,7 +1,7 @@
 (
 	{
 		name = Root;
-		children = (ListAdRelease, ListDigitalAdRelease, ListBillboardAdRelease, ListStudioNumber, ListPerson, ListClient);
+		children = (ListAdRelease, ListDigitalAdRelease, ListBillboardAdRelease, ListStudioNumber, ListProject, Reports, ListPerson, ListClient);
 	},
 	{
 		name = ListDigitalAdRelease;
@@ -68,6 +68,12 @@
 		children = ("searchPerson", "createPerson","Logout");
 	},
 	{
+		name = Reports;
+		displayName = "Project Reports";
+		action = "session.navController.showProjectReportSelectionAction";
+		children = ("Logout");
+	},
+	{
 	    name = ListStudioNumber;
 	    displayName = "Studio Numbers";
 		action = "session.navController.listStudioNumberAction";
@@ -84,6 +90,25 @@
 	     name = searchStudioNumber;
 	     displayName = "Search Studio Numbers";
 	     action = "session.navController.searchStudioNumber";
+	
+	},
+	{
+	    name = ListProject;
+	    displayName = "Project";
+		action = "session.navController.listProjectAction";
+		children = ("searchProject", "createProject","Logout");
+		conditions = ("session.user.security.canSeeProjects");
+	},
+	{
+		name = createProject;
+		displayName = "Create Project";
+		action = "session.navController.createProjectAction";
+		conditions = ("session.user.security.canEditProjects");		
+	},
+	{
+	     name = searchProject;
+	     displayName = "Search Project";
+	     action = "session.navController.searchProject";
 	
 	},
 	{

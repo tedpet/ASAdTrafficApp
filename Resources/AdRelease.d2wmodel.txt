@@ -4,9 +4,9 @@
     100 : (pageConfiguration like 'List*Release' and propertyKey = 'extStat') => displayNameForProperty = "Ext." [com.webobjects.directtoweb.Assignment],
     100 : (pageConfiguration = 'QueryAdRelease' and propertyKey = 'client') => componentName = "ERD2WQueryToOneRelationship" [com.webobjects.directtoweb.Assignment],
     100 : (pageConfiguration like 'Edit*Release' and propertyKey = 'billboardDigitalClosed') => displayPropertyKeys = ("isBillboard", "isDigital", "isClosed") [com.webobjects.directtoweb.Assignment],
+    100 : entity.name = 'AdRelease' => isEntityEditable = {"conditionKey" = "session.user.security.canEditAdRelease"; "trueValue" = "true"; } [er.directtoweb.assignments.delayed.ERDDelayedBooleanAssignment],
     100 : ((pageConfiguration like 'Edit*Release' or pageConfiguration like 'Create*Release') and propertyKey = 'pubContactAndPhoneAndEMail') => displayPropertyKeys = ("pubContact", "phoneNumber", "eMail") [com.webobjects.directtoweb.Assignment],
     100 : pageConfiguration = 'CreateAdRelease' => displayPropertyKeys = ("client", "dueDate", "extStat", "jobNumber", "publication", "issueDate", "creative", "unit", "status", "rowColor", "pubContactAndPhoneAndEMail", "comments", "typeOfAd") [com.webobjects.directtoweb.Assignment],
     100 : pageConfiguration like 'Edit*Release' => displayPropertyKeys = ("client", "dueDate", "extStat", "jobNumber", "publication", "issueDate", "creative", "unit", "status", "pubContactAndPhoneAndEMail", "comments", "rowColor", "billboardDigitalClosed") [com.webobjects.directtoweb.Assignment],
-    101 : entity.name = 'AdRelease' => isEntityEditable = {"conditionKey" = "session.user.security.canEditAdRelease"; "trueValue" = "true"; } [er.directtoweb.assignments.delayed.ERDDelayedBooleanAssignment],
     155 : (pageConfiguration like 'List*Release' and propertyKey = 'eMail') => valueWhenEmpty = "---" [com.webobjects.directtoweb.Assignment]
 )
