@@ -4,14 +4,15 @@
 <dict>
 	<key>modelPaths</key>
 	<array>
-		<string>/Users/asacksadmin/Documents/workspace/ASAdTrafficApp/Resources/AdRelease.d2wmodel</string>
-		<string>/Users/asacksadmin/Documents/workspace/ASAdTrafficApp/Resources/BBAdRelease.d2wmodel</string>
-		<string>/Users/asacksadmin/Documents/workspace/ASAdTrafficApp/Resources/DigitalAdRelease.d2wmodel</string>
-		<string>/Users/asacksadmin/Documents/workspace/ASAdTrafficApp/Resources/Person.d2wmodel</string>
-		<string>/Users/asacksadmin/Documents/workspace/ASAdTrafficApp/Resources/RowColor.d2wmodel</string>
-		<string>/Users/asacksadmin/Documents/workspace/ASAdTrafficApp/Resources/user.d2wmodel</string>
-		<string>/Users/asacksadmin/Documents/workspace/ASAdTrafficApp/Resources/StudioNumber.d2wmodel</string>
-		<string>/Users/asacksadmin/Documents/workspace/ASAdTrafficApp/Resources/Project.d2wmodel</string>
+		<string>AdRelease.d2wmodel</string>
+		<string>BBAdRelease.d2wmodel</string>
+		<string>Client.d2wmodel</string>
+		<string>DigitalAdRelease.d2wmodel</string>
+		<string>Person.d2wmodel</string>
+		<string>Project.d2wmodel</string>
+		<string>RowColor.d2wmodel</string>
+		<string>StudioNumber.d2wmodel</string>
+		<string>user.d2wmodel</string>
 	</array>
 </dict>
 </plist>

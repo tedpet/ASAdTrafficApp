@@ -137,6 +137,13 @@
 			<artifactId>TPJasperReports</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.eltek</groupId>
+			<artifactId>TPD2WFramework</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
   	</dependencies>
 
 
