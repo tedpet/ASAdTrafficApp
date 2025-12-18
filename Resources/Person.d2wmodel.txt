@@ -1,6 +1,16 @@
 (
+    40 : pageConfiguration like '*Person' => toOneUIStyle = "popup" [com.webobjects.directtoweb.Assignment],
+    40 : pageConfiguration like '*ClientForPerson' => toOneUIStyle = "popup" [com.webobjects.directtoweb.Assignment],
     100 : pageConfiguration = 'EditPerson' => subTask = "tab" [com.webobjects.directtoweb.Assignment],
     100 : pageConfiguration = 'CreatePerson' => subTask = "tab" [com.webobjects.directtoweb.Assignment],
+    100 : entity.name = 'ClientForPerson' => isEntityEditable = "true" [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'CreateEmbeddedClientForPerson' => displayPropertyKeys = ("client") [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'EditRelationshipEmbeddedClientForPerson' => displayPropertyKeys = ("client") [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'EditRelationshipEmbeddedClientForPerson' => shouldShowQueryRelatedButton = "false" [com.webobjects.directtoweb.Assignment],
+    100 : (pageConfiguration = 'EditPerson' and propertyKey = 'Client') => restrictingFetchSpecification = "activeClients" [com.webobjects.directtoweb.Assignment],
+    100 : (propertyType = 'r' and relationship.destinationEntity.name = 'ClientForPerson') => keyWhenRelationship = "clientName" [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'EditRelationshipEmbeddedClientForPerson' => actions = {"right" = ("deleteAction", "editAction"); } [com.webobjects.directtoweb.Assignment],
+    100 : (pageConfiguration = 'CreateEmbeddedClientForPerson' and propertyKey = 'client') => componentName = "ERD2WEditToOneRelationship" [com.webobjects.directtoweb.Assignment],
     100 : (pageConfiguration = 'a page configuration' and propertyKey = 'a  propertyKey') => displayNameForProperty = "ListEntityPage.PropertyKey.comments" [ERDLocalizedAssignment],
     100 : ((pageConfiguration = 'CreatePerson' or pageConfiguration = 'EditPerson') and propertyKey = 'isActive') => componentName = "D2WEditBoolean" [com.webobjects.directtoweb.Assignment],
     100 : ((pageConfiguration = 'EditPerson' or pageConfiguration = 'CreatePerson') and propertyKey = 'name') => componentName = "ERD2WMultiItemCustomComponent" [com.webobjects.directtoweb.Assignment],
@@ -15,7 +25,7 @@
     100 : ((pageConfiguration = 'EditPerson' or pageConfiguration = 'CreatePerson') and propertyKey = 'peoplePermissions') => displayPropertyKeys = ("security.canSeePerson", "security.canEditPerson", "security.canCreatePerson") [com.webobjects.directtoweb.Assignment],
     100 : ((pageConfiguration = 'EditPerson' or pageConfiguration = 'CreatePerson') and propertyKey = 'clientPermissions') => displayPropertyKeys = ("security.canSeeClients", "security.canEditClient", "security.canCreateClient") [com.webobjects.directtoweb.Assignment],
     100 : ((pageConfiguration = 'EditPerson' or pageConfiguration = 'CreatePerson') and propertyKey = 'projectPermissions') => displayPropertyKeys = ("security.canSeeProjects", "security.canEditProjects", "security.isIncludedInProjects") [com.webobjects.directtoweb.Assignment],
-    100 : pageConfiguration = 'CreatePerson' => tabSectionsContents = (("Main", "name", "title", "loginInfo", "email"), ("Permissions", "peoplePermissions", "releasePermissions", "clientPermissions", "projectPermissions", "security.seesShortList")) [com.webobjects.directtoweb.Assignment],
-    100 : pageConfiguration = 'EditPerson' => displayPropertyKeys = (("Main", "name", "title", "loginInfo", "email"), ("Permissions", "peoplePermissions", "releasePermissions", "clientPermissions", "projectPermissions", "security.seesShortList", "isActive")) [com.webobjects.directtoweb.Assignment],
-    100 : ((pageConfiguration = 'EditPerson' or pageConfiguration = 'CreatePerson') and propertyKey = 'releasePermissions') => displayPropertyKeys = ("security.canEditAdRelease", "security.canAddNewRelease", "security.canDeleteAdRelease", "security.canSeeStudioNumbers") [com.webobjects.directtoweb.Assignment]
+    100 : ((pageConfiguration = 'EditPerson' or pageConfiguration = 'CreatePerson') and propertyKey = 'releasePermissions') => displayPropertyKeys = ("security.canEditAdRelease", "security.canAddNewRelease", "security.canDeleteAdRelease", "security.canSeeStudioNumbers") [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'CreatePerson' => tabSectionsContents = (("Main", "name", "title", "loginInfo", "email"), ("Permissions", "peoplePermissions", "releasePermissions", "clientPermissions", "projectPermissions", "security.seesShortList"), ("Clients", "clientForPersons")) [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'EditPerson' => displayPropertyKeys = (("Main", "name", "title", "loginInfo", "email"), ("Permissions", "peoplePermissions", "releasePermissions", "clientPermissions", "projectPermissions", "security.seesShortList", "isActive"), ("Clients", "clientForPersons")) [com.webobjects.directtoweb.Assignment]
 )

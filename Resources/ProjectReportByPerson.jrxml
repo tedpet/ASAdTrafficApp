@@ -33,6 +33,8 @@
 	<field name="personStep" class="java.lang.String"/>
 	<field name="person.lastName" class="java.lang.String"/>
 	<field name="dueDate" class="java.util.Date"/>
+	<field name="project.priority" class="java.lang.Boolean"/>
+	<field name="project.presentation" class="java.lang.Boolean"/>
 	<group name="pname">
 		<groupExpression><![CDATA[$F{person.fullName}]]></groupExpression>
 		<groupHeader>
@@ -51,17 +53,19 @@
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="507b3446-2b5a-4d30-b998-f6d04640223a" x="24" y="15" width="198" height="55"/>
+				<reportElement uuid="507b3446-2b5a-4d30-b998-f6d04640223a" x="2" y="0" width="217" height="42"/>
 				<textElement>
-					<font fontName="Arial" size="16"/>
+					<font fontName="ASGotham" size="26"/>
 				</textElement>
-				<text><![CDATA[AgencySacks Open Project by Person]]></text>
+				<text><![CDATA[AgencySacks]]></text>
 			</staticText>
-			<textField>
-				<reportElement uuid="4be1172f-8aa0-4ebf-9239-d03791183df9" x="347" y="31" width="328" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$P{reportDescription}]]></textFieldExpression>
-			</textField>
+			<staticText>
+				<reportElement uuid="09a7dfe0-8c99-4714-9a79-5ece2a06ffca" x="6" y="36" width="336" height="28"/>
+				<textElement>
+					<font fontName="ASGotham" size="16"/>
+				</textElement>
+				<text><![CDATA[Open Project by Person]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
@@ -72,38 +76,132 @@
 	</columnHeader>
 	<detail>
 		<band height="12" splitType="Stretch">
+			<printWhenExpression><![CDATA[($F{project.presentation} == Boolean.FALSE) && ($F{project.priority} == Boolean.FALSE)]]></printWhenExpression>
 			<textField>
-				<reportElement uuid="5babdc57-b49d-4ef6-a49b-089549958d93" x="140" y="0" width="142" height="12"/>
-				<textElement>
+				<reportElement uuid="5babdc57-b49d-4ef6-a49b-089549958d93" x="187" y="0" width="142" height="12" forecolor="#000000"/>
+				<textElement markup="styled">
 					<font fontName="ASHelveticaNeueMedium" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{project.client.clientName}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="f69874f7-db56-4a0a-8cf5-d6f5df7fbaa2" x="286" y="0" width="162" height="12"/>
-				<textElement>
+				<reportElement uuid="f69874f7-db56-4a0a-8cf5-d6f5df7fbaa2" x="333" y="0" width="162" height="12" forecolor="#000000"/>
+				<textElement markup="styled">
 					<font fontName="ASHelveticaNeueMedium" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{project.projectTitle}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="46bedd8c-2263-49dd-bf1e-f398066fc886" x="453" y="0" width="285" height="12"/>
-				<textElement>
+				<reportElement uuid="46bedd8c-2263-49dd-bf1e-f398066fc886" x="500" y="0" width="250" height="12" forecolor="#000000"/>
+				<textElement markup="styled">
 					<font fontName="ASHelveticaNeueMedium" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{personStep}]]></textFieldExpression>
 			</textField>
 			<textField pattern="MMMMM dd, yyyy" isBlankWhenNull="true">
-				<reportElement uuid="10200a52-949d-4660-9224-bee76988a600" x="47" y="0" width="100" height="12"/>
-				<textElement>
+				<reportElement uuid="10200a52-949d-4660-9224-bee76988a600" x="98" y="0" width="100" height="12" forecolor="#000000"/>
+				<textElement markup="styled">
 					<font fontName="ASHelveticaNeueMedium" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dueDate}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement uuid="c721e047-03ef-46a1-afc8-49eeb7e5a0ef" x="47" y="0" width="40" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[normal]]></text>
+			</staticText>
+		</band>
+		<band height="12">
+			<printWhenExpression><![CDATA[$F{project.presentation} == Boolean.TRUE && $F{project.priority} == Boolean.FALSE]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="561fa467-4f24-4c95-9efc-fdbc78ea4d33" x="47" y="0" width="51" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[presentation]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy" isBlankWhenNull="true">
+				<reportElement uuid="a0246def-1e15-4d85-a06c-866a500f8cc3" x="98" y="0" width="100" height="12" forecolor="#0000FF"/>
+				<textElement markup="styled">
+					<font fontName="ASHelveticaNeueMedium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dueDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="242116a9-6ff6-4add-8191-43feaf1c064e" x="500" y="0" width="250" height="12" forecolor="#0000CC"/>
+				<textElement markup="styled">
+					<font fontName="ASHelveticaNeueMedium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{personStep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9a75490a-14e8-44d3-8eeb-7a997f99038e" x="333" y="0" width="162" height="12" forecolor="#0000CC"/>
+				<textElement markup="styled">
+					<font fontName="ASHelveticaNeueMedium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{project.projectTitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="33148f25-5859-44a6-b670-37d351e706fd" x="187" y="0" width="142" height="12" forecolor="#0000CC"/>
+				<textElement markup="styled">
+					<font fontName="ASHelveticaNeueMedium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{project.client.clientName}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="12">
+			<printWhenExpression><![CDATA[$F{project.priority} == Boolean.TRUE && $F{project.presentation} == Boolean.FALSE]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="00938a49-2c20-41e5-aa43-a037d9b2f9b7" x="47" y="0" width="40" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[priority]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy" isBlankWhenNull="true">
+				<reportElement uuid="c71da8fe-a910-480d-bda9-c5464dee13a0" x="99" y="0" width="100" height="12" forecolor="#CC0033"/>
+				<textElement markup="styled">
+					<font fontName="ASHelveticaNeueMedium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dueDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d8c18d94-6cdf-4654-854a-91400c3eaa09" x="500" y="0" width="250" height="12" forecolor="#FF0000"/>
+				<textElement markup="styled">
+					<font fontName="ASHelveticaNeueMedium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{personStep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="273af56c-996e-4d93-88be-56e6dd30e8a4" x="333" y="0" width="162" height="12" forecolor="#FF0000"/>
+				<textElement markup="styled">
+					<font fontName="ASHelveticaNeueMedium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{project.projectTitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="798bc508-6b9a-4f3d-8070-f2925b739ee1" x="187" y="0" width="142" height="12" forecolor="#FF0000"/>
+				<textElement markup="styled">
+					<font fontName="ASHelveticaNeueMedium" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{project.client.clientName}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="12">
+			<printWhenExpression><![CDATA[$F{project.priority} == Boolean.TRUE && $F{project.presentation} == Boolean.TRUE]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="24be7671-c77d-4677-89b3-ec136b737472" x="57" y="0" width="168" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[both are true]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="40" splitType="Stretch"/>
+		<band height="39" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
 		<band height="25" splitType="Stretch"/>

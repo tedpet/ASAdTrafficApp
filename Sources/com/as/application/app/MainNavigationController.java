@@ -47,6 +47,10 @@ public class MainNavigationController {
 	public WOComponent homeAction() {
         return D2W.factory().defaultPage(session());
     }
+	
+	public WOComponent showMediaAction() {
+	  return null;
+	}
 
 //	
 //	// Ad Releases

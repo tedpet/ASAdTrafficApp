@@ -1,0 +1,143 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ASAdTrafficApp</groupId>
+  <artifactId>ASAdTrafficApp</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+
+  	<properties>
+		<!-- properties used for filtering and dependency management -->
+		<webobjects.version>5.4.3</webobjects.version>
+		<wonder.version>7.4</wonder.version>
+
+		<!-- encoding properties -->
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+  <build>
+    <sourceDirectory>Sources</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>Sources</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <release>21</release>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+  	<dependencies>
+		<dependency>
+			<groupId>wonder.core</groupId>
+			<artifactId>ERExtensions</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>wonder.core</groupId>
+			<artifactId>ERDirectToWeb</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>wonder.core</groupId>
+			<artifactId>ERNeutralLook</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>wonder.core</groupId>
+			<artifactId>ERPrototypes</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>wonder.core</groupId>
+			<artifactId>WOOgnl</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.webobjects</groupId>
+			<artifactId>JavaWebObjects</artifactId>
+			<version>${webobjects.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.webobjects</groupId>
+			<artifactId>JavaEOAccess</artifactId>
+			<version>${webobjects.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>wonder.d2w</groupId>
+			<artifactId>ERModernLook</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>wonder.d2w</groupId>
+			<artifactId>ERModernDefaultSkin</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>wonder.misc</groupId>
+			<artifactId>WOLips</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>wonder.businesslogic</groupId>
+			<artifactId>ERCoreBusinessLogic</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.webobjects</groupId>
+			<artifactId>JavaFoundation</artifactId>
+			<version>${webobjects.version}</version>
+		</dependency>
+		
+		<dependency>
+		  	<groupId>org.postgresql</groupId>
+		  	<artifactId>postgresql</artifactId>
+		  	<version>42.7.5</version>
+		</dependency>
+     <dependency>
+          <groupId>wonder.plugins</groupId>
+          <artifactId>PostgresqlPlugIn</artifactId>
+          <version>${wonder.version}</version>
+     </dependency>
+
+	<dependency>
+		<groupId>com.eltek</groupId>
+		<artifactId>ASAdTrafficModel</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+    	<groupId>commons-lang</groupId>
+    	<artifactId>commons-lang</artifactId>
+    	<version>2.6</version>
+	</dependency>
+
+		<dependency>
+			<groupId>com.eltek</groupId>
+			<artifactId>ASAdTrafficModel</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.eltek</groupId>
+			<artifactId>TPJasperReports</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+  	</dependencies>
+
+
+</project>

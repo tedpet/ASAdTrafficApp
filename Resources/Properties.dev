@@ -1,14 +1,7 @@
 log4j.logger.er.directtoweb.rules.ERD2WTraceRuleFiringEnabled=DEBUG
 
-username=admin
-password=4004
+username=t
+password=123456
 
 
 
-# Connection Dictionary
- dbConnectURLGLOBAL=jdbc:postgresql://localhost/astrafficdb?capitalizeTypenames=true&zeroDateTimeBehavior=convertToNull
- dbConnectUserGLOBAL=admin
- dbConnectPasswordGLOBAL=4004
- dbConnectPluginGLOBAL=PostgresqlPlugIn
- dbConnectDriverGLOBAL=org.postgresql.Driver
- dbEOPrototypesEntityGLOBAL=EOJDBCPostgresqlPrototypes

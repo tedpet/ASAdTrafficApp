@@ -1,7 +1,7 @@
 (
 	{
 		name = Root;
-		children = (ListAdRelease, ListDigitalAdRelease, ListBillboardAdRelease, ListStudioNumber, ListProject, Reports, ListPerson, ListClient);
+		children = (ListAdRelease, ListDigitalAdRelease, ListBillboardAdRelease, ListStudioNumber, ListProject, Media, Reports, ListPerson, ListClient);
 	},
 	{
 		name = ListDigitalAdRelease;
@@ -71,6 +71,12 @@
 		name = Reports;
 		displayName = "Project Reports";
 		action = "session.navController.showProjectReportSelectionAction";
+		children = ("Logout");
+	},
+	{
+		name = Media;
+		displayName = "Media";
+		action = "session.navController.showMediaAction";
 		children = ("Logout");
 	},
 	{

@@ -44,4 +44,33 @@ public class SelectProjectReports extends ERD2WInspectPageTemplate {
 
       return nextPage;
     }
+    
+    
+    public WOActionResults projectReportByClient() {
+      // Create the task
+      NSLog.out.appendln(" ready to call callable Reports.createProjectReportTask();" );
+
+      Callable<File> reportTask = Reports.createProjectReportTaskByPerson();
+      //NSLog.out.appendln(" finished to call callable Reports.createProjectReportTask();" );
+
+      // Create the long response page
+      CCAjaxLongResponsePage nextPage = pageWithName(CCAjaxLongResponsePage.class);
+
+      // Push the task into the long response page
+      nextPage.setTask(reportTask);
+
+      // Controller for handling the Callable result in the long response page
+      FileTaskDownloadController nextPageController = new FileTaskDownloadController();
+
+      // Hyperlink text on the "Your file is downloaded page" to get back here
+      nextPageController.setReturnLinkText("Project Reports");
+
+      // The filename for the download
+      nextPageController.setDownloadFileNameForProject("ProjectList by Person.pdf");
+
+
+      nextPage.setNextPageForResultController(nextPageController);
+
+      return nextPage;
+    }
 }

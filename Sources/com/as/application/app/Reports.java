@@ -77,5 +77,49 @@ public class Reports {
 
 
   }
+  
+  public static Callable<File> createProjectReportTaskByClient() {
+    NSLog.out.appendln(" createProjectReportTaskByClient " );
+
+    EOEditingContext ec = ERXEC.newEditingContext();
+    ec.lock();
+
+    TPJRFetchSpecificationReportTask reportTask = null;
+
+    try {
+      
+      //NSLog.out.appendln(" createProjectReportTaskByPerson in the try" );
+
+      ERXSortOrderings sortOrderings = ProjectPerson.PERSON.dot(Person.FIRST_NAME).asc()
+          .then(ProjectPerson.PERSON.dot(Person.LAST_NAME).asc())
+          .then((ProjectPerson.DUE_DATE).asc());     //Movie.STUDIO.dot(_Studio.NAME).ascs();
+
+      String reportDescription = "A report that displays all the open Projects";
+
+      HashMap<String, Object> parameters = new HashMap<String, Object>();
+      parameters.put("reportDescription", reportDescription);
+
+      EOQualifier qualifier = ProjectPerson.PROJECT.dot(Project.IS_ACTIVE.eq(true));
+      ERXFetchSpecification<ProjectPerson> fs = new ERXFetchSpecification<ProjectPerson>(ProjectPerson.ENTITY_NAME, qualifier, sortOrderings);
+   
+      reportTask = new TPJRFetchSpecificationReportTask(fs, "ProjectReportByPerson.jasper", parameters);
+
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+
+
+    } finally {
+      //NSLog.out.appendln("finally : "  );
+      ec.unlock();
+      ec.dispose();
+    }
+
+    NSLog.out.appendln("about to return reportTask: " + reportTask.toString() );
+
+    return reportTask;
+
+
+  }
 
 }

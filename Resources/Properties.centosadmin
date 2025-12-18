@@ -2,9 +2,9 @@
 #     ASAdTrafficApp for Karen Shaw    Deployment admin
 
 # Connection Dictionary
- dbConnectURLGLOBAL=jdbc:postgresql://10.1.2.10/astrafficdb?capitalizeTypenames=true&zeroDateTimeBehavior=convertToNull
- dbConnectUserGLOBAL=admin
- dbConnectPasswordGLOBAL=4004
- dbConnectPluginGLOBAL=PostgresqlPlugIn
- dbConnectDriverGLOBAL=org.postgresql.Driver
- dbEOPrototypesEntityGLOBAL=EOJDBCPostgresqlPrototypes
+# dbConnectURLGLOBAL=jdbc:postgresql://10.1.2.10/astrafficdb?capitalizeTypenames=true&zeroDateTimeBehavior=convertToNull
+# dbConnectUserGLOBAL=admin
+# dbConnectPasswordGLOBAL=4004
+# dbConnectPluginGLOBAL=PostgresqlPlugIn
+# dbConnectDriverGLOBAL=org.postgresql.Driver
+# dbEOPrototypesEntityGLOBAL=EOJDBCPostgresqlPrototypes
